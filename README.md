@@ -1,57 +1,45 @@
-# Air Quality Prediction Using Stacking Model
+# Air Quality Prediction
 
-## 📌 Project Overview
-This project focuses on predicting relative humidity (RH) using an optimized **Stacking Model** combining **Random Forest** and **LightGBM** regressors. The dataset consists of air quality measurements, and we employ **feature selection, hyperparameter tuning, and visualization** techniques to improve model performance.
+## Overview
+This project aims to predict air quality using machine learning techniques. The dataset includes various environmental attributes, and the model predicts the relative humidity (`RH`). The project implements data preprocessing, feature engineering, hyperparameter tuning, and model evaluation.
 
-## 🚀 Features & Optimizations
-- **Data Preprocessing**
-  - Handling missing values and outliers
-  - Feature scaling using StandardScaler
-  - Removing highly correlated features
-- **Model Training & Optimization**
-  - Stacking model with **Random Forest & LightGBM**
-  - **Optuna for hyperparameter tuning** (reduced trials for faster execution)
-  - **Cross-validation with KFold (3 splits)** for robust evaluation
-  - **Parallel processing (`n_jobs=-1`)** to speed up computations
-- **Performance Metrics**
-  - R² Score
-  - Mean Absolute Error (MAE)
-  - Root Mean Squared Error (RMSE)
-- **Visualizations**
-  - Error distribution plot
-  - Actual vs. Predicted values scatter plot
+## Features
+- **Data Preprocessing:** Handles missing values, removes highly correlated features, and converts date & time formats.
+- **Feature Scaling:** Standardizes features using `StandardScaler`.
+- **Model Selection:** Implements `RandomForestRegressor`, `LGBMRegressor`, and `StackingRegressor`.
+- **Hyperparameter Tuning:** Uses `Optuna` for optimizing model parameters.
+- **Model Evaluation:** Assesses performance using `R²`, `MAE`, and `RMSE`.
+- **Visualizations:** Includes prediction error histogram and scatter plot of actual vs. predicted values.
 
-## 📊 Dataset
-- **Source**: [Kaggle - Air Quality Data](https://www.kaggle.com/datasets)
-- **Preprocessing Steps**:
-  - Converted Date and Time columns
-  - Dropped irrelevant and highly correlated columns
-  - Normalized numerical features
-  - Used **30% of dataset** for faster model execution
+## Dataset
+The dataset is loaded from a CSV file and includes attributes such as:
+- `Date`, `Time`
+- `CO`, `NO2`, `O3`, `SO2`, etc.
+- `RH` (Target variable: Relative Humidity)
 
-## 🛠️ Tech Stack
-- **Python** (Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, Optuna, LightGBM)
-- **Machine Learning** (Stacking Regressor, Hyperparameter Optimization, Feature Engineering)
+## Installation
+To run this project, install the required dependencies:
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn optuna lightgbm
+```
 
-## 📌 Installation
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/Gayatridandgal/air-quality-prediction.git
-   cd air-quality-prediction
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the script:
-   ```bash
-   python main.py
-   ```
+## Usage
+Run the Jupyter Notebook to execute the analysis:
+```bash
+jupyter notebook airquality.ipynb
+```
 
-## 📌 Future Improvements
-- Add more advanced feature engineering
-- Experiment with additional models like **XGBoost or CatBoost**
-- Deploy model using **Flask or FastAPI**
+## Results
+- **Cross-Validation R² Mean:** Shows model performance on training data.
+- **Optimized Stacking Model R²:** Measures accuracy on test data.
+- **MAE & RMSE:** Evaluate prediction errors.
+- **Visualizations:**
+  - Histogram of prediction errors
+  - Scatter plot of actual vs. predicted values
 
+## Contributions
+Feel free to contribute by optimizing the model further, adding new features, or improving visualizations.
 
+## License
+This project is open-source and available under the MIT License.
 
